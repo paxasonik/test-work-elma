@@ -1,0 +1,185 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    user-select: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+ul li {
+    list-style-type: none;
+}
+
+
+
+/*общие стили планировщика*/
+.planner {
+    display: flex;
+    justify-content: space-between;
+}
+.planner-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+@media screen and (max-width: 999px) {
+    .planner {
+        width: 1000px;
+        overflow: auto;
+    }
+}
+
+
+
+/*Столбик с именами*/
+.planner-users {
+    background-color: rgba(203, 236, 249, 1);
+}
+.user-item {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 5px;
+    margin-bottom: 5px;
+    min-height: 100px;
+}
+.user-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #484848;
+    padding: 10px;
+}
+.user-task {
+    background-color: rgba(216, 216, 216, 1);
+    height: 100%;
+}
+@media screen and (max-width: 1399px) {
+    .user-name {
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 1199px) {
+    .user-name {
+        font-size: 12px;
+    }
+}
+
+
+
+/*Даты и кнопки*/
+.planner-dates {
+    background-color: rgba(255, 255, 255, 1);
+}
+.weekdays-list {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 5px;
+}
+.week-btns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+.btn-week {
+    background-color: #f7f7f7;
+    
+    padding: 20px 30px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.btn-week svg {
+    fill: gray;
+    transition: fill .2s;
+}
+.btn-week:hover svg {
+    fill: #ff9999;
+}
+.day-item {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    padding: 10px;
+    font-family: 'Quicksand', sans-serif;
+    background-color: rgba(216, 216, 216, 1);
+    border-bottom: 1px solid rgba(255, 153, 153, .6)
+}
+
+
+
+
+/*список с делами*/
+.planner-backlog {
+    flex: 0 0 22%;
+    background-color: rgba(203, 236, 249, 1);
+    border-left: 1px solid rgba(255, 153, 153, .6)
+}
+.backlog-title {
+    text-align: center;
+    font-size: 60px;
+    padding: 31px;
+}
+.backlog-list {
+    display: grid;
+    gap: 10px;
+    padding: 0px 10px;
+}
+.backlog-item {
+    background-color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 5px;
+}
+
+.user-task .backlog-item:last-child {
+    margin-bottom: 10px;
+}
+.backlog-item__titleTask {
+    text-align: center;
+    font-size: 28px;
+    color: #484848;
+}
+.user-task .backlog-item__titleTask {
+    font-size: 16px;
+    word-break: break-word;
+}
+.backlog-item__hintTask {
+    position: absolute;
+    padding: 10px;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #bdbdbd;
+    transform: scaleY(0);
+    transition: all .2s;
+    transform-origin: top;
+    opacity: 0;
+    z-index: 9;
+}
+.backlog-item:hover .backlog-item__hintTask {
+    transform: scaleY(1);
+    opacity: 1;
+}
+@media screen and (max-width: 1399px) {
+    .planner-backlog {
+        flex: 0 0 15%;
+    }
+    .backlog-title {
+        font-size: 42px;
+        padding: 42px 10px;
+    }
+    .backlog-item__titleTask {
+        font-size: 16px;
+    }
+}
